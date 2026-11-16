@@ -1,0 +1,53 @@
+% CjC.cls defines its own Chinese size macro, while current CTeX also defines
+% \zihao. Preserve the CjC definitions, temporarily undefine the collision
+% while loading the installed CTeX package, then restore the CjC size map.
+\RequirePackage{expl3}
+\let\CjCzihao\zihao
+\let\CjCnormalSize\normalsize
+\let\normalsize\relax
+\ExplSyntaxOn
+\cs_undefine:N \zihao
+\ExplSyntaxOff
+\RequirePackage{ctex}
+\let\zihao\CjCzihao
+\let\normalsize\CjCnormalSize
+
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{etoolbox}
+\RequirePackage{booktabs,tabularx,array}
+\RequirePackage{float}
+\RequirePackage{graphicx}
+\RequirePackage{gbt7714}
+\citestyle{super}
+\RequirePackage{stfloats}
+\RequirePackage{cuted}
+\RequirePackage{captionhack}
+\makeatletter
+\renewcommand{\fnum@figure}{{\zihao{5-}\textbf{图\thefigure}}}
+\renewcommand{\fnum@table}{{\zihao{5-}\textbf{表\thetable}}}
+\makeatother
+\RequirePackage{hyperref}
+\hypersetup{hidelinks}
+\graphicspath{{figures/}}
+\setmainfont{TeX Gyre Termes}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\AtBeginEnvironment{thebibliography}{\footnotesize\interlinepenalty=10000}
+% The source SVGs contain a small unused bottom canvas margin; the figure
+% environments trim that margin. Keep the remaining caption gap compact.
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\setlength{\parindent}{2em}
+\setlength{\columnsep}{8mm}
+\setlength{\emergencystretch}{1em}
+\renewcommand{\theequation}{\arabic{equation}}
+\newlength{\CjCAbstractSideIndent}
+\setlength{\CjCAbstractSideIndent}{\parindent}
+\newlength{\CjCAbstractAfterSkip}
+\setlength{\CjCAbstractAfterSkip}{6mm}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+

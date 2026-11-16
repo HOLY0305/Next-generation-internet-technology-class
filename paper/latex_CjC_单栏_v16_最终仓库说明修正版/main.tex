@@ -1,0 +1,39 @@
+\documentclass[10.5pt,compsoc,UTF8]{CjC}
+\input{config/style.tex}
+\input{config/layout.tex}
+\input{config/metadata.tex}
+
+\headevenname{\HeaderText}
+\headoddname{\PaperTitleCN}
+\pagestyle{CjCheadings}
+
+\begin{document}
+\setcounter{page}{1}
+
+\begin{center}
+{\zihao{2}\heiti \PaperTitleCN\par}
+\vspace{3mm}
+{\zihao{4}\fangsong 作者：\AuthorName\quad 学号：\StudentNumber\par}
+\vspace{1mm}
+{\zihao{5-} 学院与专业：\DepartmentName / \MajorName\quad 课程：\CourseName\par}
+{\zihao{5-} 任课教师：\InstructorName\quad 提交日期：\SubmissionDate\par}
+\end{center}
+\vspace{1mm}
+\noindent\hspace*{\CjCAbstractSideIndent}\begin{minipage}{\dimexpr\textwidth-2\CjCAbstractSideIndent\relax}
+{\zihao{5-}\setlength{\baselineskip}{13.5pt}\selectfont
+\noindent{\heiti 摘要\quad}
+分布式 MoE 训练将专家分散到多张 GPU，扩大了模型容量，但也使 token 分发与回收产生跨设备 All-to-All 通信。现有研究分别通过 expert fetch、动态专家复制和 sample placement 缓解通信路径或专家热点，但三者作用的资源并不相同。本文以关键路径上的暴露等待为分析视角，比较这些机制的收益来源、调整成本和适用负载，指出样本放置主要改善网络局部性，专家复制主要缓解持续性计算或容量热点，专家拉取则通过改变通信对象减少特定条件下的数据搬运。基于这一判断，本文提出一种面向主导瓶颈识别的自适应放置思路，并给出区分控制变量测试与端到端训练效果的验证方案。\par
+\vspace{1mm}
+\noindent{\heiti 关键词\quad}混合专家模型；分布式训练；专家并行；All-to-All；动态专家放置；样本放置；Scale-out\par}
+\end{minipage}
+
+\vspace{\CjCAbstractAfterSkip}
+
+\input{sections/01_introduction.tex}
+\input{sections/02_research_and_comparison.tex}
+\input{sections/03_challenges.tex}
+\input{sections/04_future_and_experiment.tex}
+\input{sections/05_conclusion.tex}
+\input{backmatter/declarations.tex}
+\input{backmatter/references.tex}
+\end{document}
