@@ -31,7 +31,7 @@ ZIP 使用 Overleaf 项目根目录结构：`main.tex`、`CjC.cls`、依赖样�
 - 参考文献：`backmatter/references.tex`，保留九条已核验文献和数字编号；`references.bib` 未启用。
 - 图片：`figures/figure1.svg`、`figures/figure2.svg` 是 v12 已验证的 960×720（4:3）裁边 SVG 副本；`figures/original_uncropped/` 保留裁边前的原始未裁边备份；`figure1.pdf`、`figure2.pdf` 是由裁边 SVG 转换得到的矢量 PDF，供 XeLaTeX 插入。
 
-论文使用等比例矢量 PDF，在 A4 纵向单栏中按版心宽度浮动排版。v15 不改变 SVG 内部图元；图注留白、文献上标和页面排版沿用 v14。
+论文使用等比例矢量 PDF，在 A4 纵向单栏中按版心宽度浮动排版。v16 不改变 SVG 内部图元；图注留白、文献上标和页面排版沿用 v14。
 
 ## 提交前检查
 
@@ -39,7 +39,7 @@ ZIP 使用 Overleaf 项目根目录结构：`main.tex`、`CjC.cls`、依赖样�
 
 ## 默认排版
 
-A4 纵向、正文单栏；图 1 和图 2 均为纵向页面中的等比例矢量图；正文约 11 pt、约 1.25 倍行距；摘要与关键词使用窄于正文的版心；公式连续编号；图表自动编号；本 v15 实际使用并嵌入 TeX Gyre Termes，中文字体由 CTeX 按系统选择。页面尺寸、页眉高度和间距可在 `config/layout.tex` 调整。
+A4 纵向、正文单栏；图 1 和图 2 均为纵向页面中的等比例矢量图；正文约 11 pt、约 1.25 倍行距；摘要与关键词使用窄于正文的版心；公式连续编号；图表自动编号；本 v16 实际使用并嵌入 TeX Gyre Termes，中文字体由 CTeX 按系统选择。页面尺寸、页眉高度和间距可在 `config/layout.tex` 调整。
 
 ## 模板来源与许可
 
